@@ -28,11 +28,11 @@ function App() {
         <input type="text" name="search" id="search" ref={inputRef}/>
         <button onClick={() => searchDict()}>Search</button>
       
-      <p className="read-the-docs">
-      Definition:
+      <p>
+      Definition: {def}
       </p>
 
-      {def}
+      
 
     </>
   )
