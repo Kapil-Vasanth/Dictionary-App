@@ -29,7 +29,7 @@ function App() {
         <button onClick={() => searchDict()}>Search</button>
       
       <p className="read-the-docs">
-        Definition : 
+      Definition:
       </p>
 
       {def}
