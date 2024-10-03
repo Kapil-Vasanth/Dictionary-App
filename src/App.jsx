@@ -1,4 +1,4 @@
-import { useState,useRef } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 const Dictionary = [
@@ -9,10 +9,10 @@ const Dictionary = [
 
 function App() {
   const [def, setDef] = useState("")
-  const inputRef = useRef(null);
+  const [search,setSearch] = useState("");
 
-  const searchDict = () => {
-    let searchText = inputRef.current.value
+  const searchDict = (e) => {
+    let searchText = search.toString();
     let foundValue = Dictionary.find(dict => dict.word.toLowerCase() === searchText.toLowerCase())?.meaning
     if(foundValue)
     setDef(foundValue)
@@ -20,20 +20,13 @@ function App() {
     setDef("Word not found in the dictionary.")
   }
 
-
   return (
     <>
       <h1>Dictionary App</h1>
-      
-        <input type="text" name="search" id="search" ref={inputRef}/>
-        <button onClick={() => searchDict()}>Search</button>
-      
-      
-      Definition: {def}
-     
-
-      
-
+      <input type="text" name="search" id="search" onChange={(e) => setSearch(e)}/>
+      <button onClick={() => searchDict()}>Search</button> <br />
+      <strong>Definition:</strong> 
+      <p>{def}</p>
     </>
   )
 }
